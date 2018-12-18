@@ -1,0 +1,231 @@
+*,
+*::after,
+*::before {
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit; 
+}
+
+body, html {
+    display: flex;
+    justify-content: center;
+    font-family: arial;
+    font-size: 62.5%;
+    height: 100vh;
+    width: 100vw;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.infos {
+    display: flex;
+    justify-content: space-between;
+    font-size: 1.6rem;
+    margin-bottom: 20px;
+}
+
+#playerone {
+    font-family: 'Press Start 2P', cursive;
+    text-align: left;
+}
+
+#playertwo {
+    font-family: 'Press Start 2P', cursive;
+    text-align: right;
+}
+
+.isplaying1 {
+    color: rgb(255, 251, 0);
+}
+
+.isplaying2 {
+    color: rgb(255, 0, 0);
+}
+
+.dark {
+    transform: translateX(100%);
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    background-color: rgba(0, 0, 0, .4);
+    z-index: 10;
+}
+
+.form {
+    display: none;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.5rem;
+    width: 350px;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%,-50%);
+    z-index: 100; 
+}
+
+#name1, 
+#name2 {
+    width: 42%;
+    padding: 10px;
+    font-size: 1.6rem;
+    font-family: 'Press Start 2P', cursive;
+}
+
+.btn {
+    margin: 0 auto;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    width: 120px;
+    border: 2px solid #666;
+    box-shadow: 0 .1rem .5rem rgba(48, 48, 48, 0.2);
+    cursor: pointer;
+}
+
+.message {
+    display: none;
+    margin: 0 auto;
+    border-radius: 10px;
+    padding: 20px;
+    font-size: 1.5rem;
+    width: 350px;
+    text-align: center;
+    background-color: #FFF;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    opacity: .85;
+    transform: translate(-50%,-50%);
+    z-index: 100; 
+}
+
+.text {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 2rem;
+    margin-bottom: 20px;
+    opacity: 1;
+    animation: blinker .5s step-start infinite;
+}
+
+@keyframes blinker {
+    50% {
+      opacity: 0;
+    }
+  }
+
+.table {
+    font-family: 'Press Start 2P', cursive;
+    border: 1px solid black;
+    padding: 5px;
+}
+
+.score {
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    padding: 10px;
+    font-weight: 700;
+}
+.score:first-child {
+    margin-top: 10px;
+}
+
+.reset {
+    margin: 0 auto;
+    margin-top: 20px;
+    padding: 10px;
+    text-align: center;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    width: 120px;
+    border: 2px solid #666;
+    box-shadow: 0 .1rem .5rem rgba(48, 48, 48, 0.2);
+    cursor: pointer;
+}
+
+.board {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    border: 1px solid #1c59df;
+    height: 600px;
+    width: auto;
+    background:#1c59df;
+    box-shadow: 0 .5rem 1.2rem rgba(0, 0, 0, 0.4);
+}
+
+.column {
+    display: flex;
+    flex-direction: column;
+}
+
+.case {
+    height: 100px;
+    width: 100px;
+    border: 1px solid #1c59df;
+    border-radius: 50%;
+    background-color: #FFF;
+    flex-direction: row;
+}
+
+.yellow {
+    height: 98px;
+    border-radius: 50%;
+    background:linear-gradient(#FFF700 60%, rgb(202, 189, 2));
+    box-shadow: 0 .5rem 1.2rem rgba(0, 0, 0, 0.4);
+    animation: checkerFall .5s linear;
+    overflow: hidden;
+}
+.red {
+    height: 98px;
+    border-radius: 50%;
+    background:linear-gradient(rgb(255, 0, 0) 60%, rgb(172, 2, 2));
+    box-shadow: 0 .5rem 1.2rem rgba(0, 0, 0, 0.4);
+    animation: checkerFall .5s linear;
+}
+
+.highlighted {
+    background-color: rgba(238, 241, 255, 0.966)
+}
+
+.btn__reset {
+    margin: 0 auto;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 1rem;
+    margin-top: 30px;
+    padding: 10px;
+    text-align: center;
+    width: 120px;
+    border: 2px solid #666;
+    box-shadow: 0 .1rem .5rem rgba(48, 48, 48, 0.2);
+    cursor: pointer;
+}
+
+.cheat {
+    position: absolute;
+    white-space: nowrap;
+    top: 30%;
+    left: 40%;
+    font-family: 'Press Start 2P', cursive;
+    font-size: 4rem;
+    transform: rotate(40deg);
+}
+
+@keyframes checkerFall {
+    0% {transform: translateY(-800%)}
+    60% {transform: translateY(0%)}
+    70% {transform: translateY(-60%)}
+    85% {transform: translateY(0%)}
+    95% {transform: translateY(-20%)}
+    100% {transform: translateY(0%)}
+}

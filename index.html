@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Connect Four</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="https://fonts.googleapis.com/css?family=Press+Start+2P" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" media="screen" href="style.css" />
+</head>
+<body>
+    <div class="container">
+        <div class="dark"></div>
+        <div class="cheat"></div>
+        <div class="form">
+            <input id="name1" type="text" placeholder="player 1"> 
+            <input id="name2" type="text" placeholder="player 2"> 
+            <div class="btn">start new game</div>
+        </div>
+        <div class="message"></div>
+        <div class="infos">
+            <div id="playerone"></div>
+            <div id="playertwo"></div>
+        </div>
+        <div class="board">
+            <div class="col0 column">
+                <div class="col0 row0 case"></div>
+                <div class="col0 row1 case"></div>
+                <div class="col0 row2 case"></div>
+                <div class="col0 row3 case"></div>
+                <div class="col0 row4 case"></div>
+                <div class="col0 row5 case"></div>
+            </div>
+            <div class="col1 column">
+                <div class="col1 row0 case"></div>
+                <div class="col1 row1 case"></div>
+                <div class="col1 row2 case"></div>
+                <div class="col1 row3 case"></div>
+                <div class="col1 row4 case"></div>
+                <div class="col1 row5 case"></div>
+            </div>
+            <div class="col2 column">
+                <div class="col2 row0 case"></div>
+                <div class="col2 row1 case"></div>
+                <div class="col2 row2 case"></div>
+                <div class="col2 row3 case"></div>
+                <div class="col2 row4 case"></div>
+                <div class="col2 row5 case"></div>
+            </div>
+            <div class="col3 column">
+                <div class="col3 row0 case"></div>
+                <div class="col3 row1 case"></div>
+                <div class="col3 row2 case"></div>
+                <div class="col3 row3 case"></div>
+                <div class="col3 row4 case"></div>
+                <div class="col3 row5 case"></div>
+            </div>
+            <div class="col4 column">
+                <div class="col4 row0 case"></div>
+                <div class="col4 row1 case"></div>
+                <div class="col4 row2 case"></div>
+                <div class="col4 row3 case"></div>
+                <div class="col4 row4 case"></div>
+                <div class="col4 row5 case"></div>
+            </div>
+            <div class="col5 column">
+                <div class="col5 row0 case"></div>
+                <div class="col5 row1 case"></div>
+                <div class="col5 row2 case"></div>
+                <div class="col5 row3 case"></div>
+                <div class="col5 row4 case"></div>
+                <div class="col5 row5 case"></div>
+            </div>
+            <div class="col6 column">
+                <div class="col6 row0 case"></div>
+                <div class="col6 row1 case"></div>
+                <div class="col6 row2 case"></div>
+                <div class="col6 row3 case"></div>
+                <div class="col6 row4 case"></div>
+                <div class="col6 row5 case"></div>
+            </div>
+        </div>
+        <div class="btn__reset">New Players</div>
+    </div>
+    
+<script src="jquery-3.3.1.js"></script>
+<script src="simulation.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

@@ -22,6 +22,7 @@ to install the game on your local machine just clone the repository to your loca
 ## Built With
 
 * JavaScript
+* Jquery
 * CSS
 * HTML
 
@@ -33,7 +34,7 @@ to install the game on your local machine just clone the repository to your loca
 
 This project is licensed under the MIT License - see the [LICENSE.md](LICENSE.md) file for details
 
-## Acknowledgments
+## Super secret tip...
 
 * If you want to beat anyone, by looking the code you should be able to find a cheat code that will give you super power....
 

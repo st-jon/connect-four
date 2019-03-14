@@ -13,11 +13,11 @@ If you want to play againt the computer, you just need to name player 2 : HAL.
 <img src="assets/connect4_1.gif" width="600">
 
 
-Otherwise, just have fun with your friend trying to kick their asses...
+Otherwise, just have fun with your friends.
 
 ### Installing
 
-to install the game on your local machine just clone the repository to your local machin and open the index.html file in your prefered browser.
+to install the game on your local machine just clone the repository to your local machine and open the index.html file in your prefered browser (CHROME should work better...).
 
 ## Built With
 

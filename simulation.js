@@ -1,17 +1,18 @@
 var defense = [];
 var offense = [];
+var next = [];
 var simulateBoard = [];
 var strategy = {};
 
 function simulation(board, player){
     var simulateBoard = JSON.parse(JSON.stringify(board));
-    // simulateBoard = board;  
     for(var i = 0; i < 7; i++) {
         simulateAddChecker(i, player, simulateBoard)
     }
     strategy = {
         defense: defense,
-        offense: offense
+        offense: offense,
+        next: next
     }
     return strategy;
 }
@@ -29,11 +30,22 @@ function simulateAddChecker(col, player, board) {
                 break;
             }
         }
+        if (player.value === 2) {
+            checkPosition(lastCheckerSim, board, player);
+            var nextPos = [ lastCheckerSim[0], lastCheckerSim[1] - 1 ]
+            var simulateBoardTwo = JSON.parse(JSON.stringify(board))
+            if (lastCheckerSim[1] - 1 > 0) {
+                simulateBoardTwo[lastCheckerSim[1] - 1 ][lastCheckerSim[0]] = 1
+                var nextcheck = true 
+                var nextPlayer = {value: 1}
+                checkPosition(nextPos, simulateBoardTwo, nextPlayer, nextcheck);
+            } 
+        }
         checkPosition(lastCheckerSim, board, player);
         board[lastCheckerSim[1]][lastCheckerSim[0]] = 0;
 }
 
-function checkPosition(position, board, player){
+function checkPosition(position, board, player, nextCheck){
 
     var defenseSituation = {
         horizontal: 0,
@@ -47,15 +59,24 @@ function checkPosition(position, board, player){
         diagonal: 0
     };
 
-    // vertical simulation
+    var nextSituation = {
+        horizontal: 0,
+        vertical: 0,
+        diagonal: 0
+    };
 
-    if (position[1] === 5 && player.value === 1) {
+    // vertical simulation
+    if (position[1] === 5 && nextCheck) {
+        nextSituation.vertical = 1;
+        next[position[0]] = nextSituation;
+    } else if (position[1] === 5 && player.value === 1) {
         defenseSituation.vertical = 1;
         defense[position[0]] = defenseSituation;
     } else if (position[1] === 5 && player.value === 2) {
         offenseSituation.vertical = 1;
         offense[position[0]] = offenseSituation;
     }
+
     else {
         var countVertical = 1;
         for (var k = 1; k <= 3; k++){
@@ -68,7 +89,10 @@ function checkPosition(position, board, player){
                 break;
             }
         }
-        if (player.value === 1) {
+        if (nextCheck) {
+            nextSituation.vertical = countVertical;
+            next[position[0]] = nextSituation;
+        } else if (player.value === 1) {
             defenseSituation.vertical = countVertical;
             defense[position[0]] = defenseSituation;
         } else if (player.value === 2) {
@@ -111,14 +135,17 @@ function checkPosition(position, board, player){
         } else {
             break;
         }
-    }  
-    if (player.value === 1) {
+    } 
+    if (nextCheck) {
+        nextSituation.horizontal = countHorizontal;
+        next[position[0]] = nextSituation;
+    } else if (player.value === 1) {
         defenseSituation.horizontal = countHorizontal;
         defense[position[0]] = defenseSituation; 
     } else if (player.value === 2) {
         offenseSituation.horizontal = countHorizontal;
         offense[position[0]] = offenseSituation;
-    }
+    } 
        
 
     // diagonal simulation 
@@ -187,13 +214,14 @@ function checkPosition(position, board, player){
         }
     } 
     var countDiagonal = (countDiagonalOne >= countDiagonalTwo) ? countDiagonalOne : countDiagonalTwo;
-    if (player.value === 1) {
+    if (nextCheck) {
+        nextSituation.diagonal = countDiagonal;
+        next[position[0]] = nextSituation;
+    } else if (player.value === 1) {
         defenseSituation.diagonal = countDiagonal;
         defense[position[0]] = defenseSituation; 
     } else if (player.value === 2) {
         offenseSituation.diagonal = countDiagonal;
         offense[position[0]] = offenseSituation; 
-    }
-    console.log(defense)
-    console.log(offense)
+    } 
 }  

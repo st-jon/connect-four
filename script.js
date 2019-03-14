@@ -53,7 +53,6 @@
     }
 
     function addCheckers(player, col) {
-        console.log(col)
         if(numberOfPlay === 42) {
             tie = true;
             announceWinner(player)
@@ -61,7 +60,6 @@
         if(!win) { 
             lastChecker = [];
             if (board[0][col] !== 0){
-                console.log('block here')
                 return;
             }
             for (var i = ROWS - 1; i >= 0; i--) {
@@ -112,8 +110,6 @@
                 strategy.defense[j].diagonal = -25;
             }
         }
-        console.log(freeCol)
-        console.log(strategy)
 
         var offenseIs4 = strategy.offense.findIndex( x => x.horizontal === 4 ||
                                                           x.vertical === 4 ||
@@ -166,7 +162,7 @@
            }
         }
         if (sumIndex.length >= 1) {
-            console.log(sumIndex)
+            // console.log(sumIndex)
             var nextcol = Math.floor(Math.random() * Math.floor(sumIndex.length)) + 1;
             return nextcol
         }
